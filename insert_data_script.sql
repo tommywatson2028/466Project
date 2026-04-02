@@ -20,7 +20,7 @@ INSERT INTO Inventory
 		('The Legend of Zelda: Twilight Princess', '8', '7.99', 'Game'),
 		('Madden NFL 08', '10', '4.99', 'Game'),
 		('Spider-Man 2', '3', '3.99', 'Movie'),
-		('Rock Band 2', '6', '5.99', 'Game');
+		('Rock Band 2', '6', '5.99', 'Game')
 ;
 
 INSERT INTO Customers
