@@ -23,8 +23,8 @@ INSERT INTO Inventory
 		('Rock Band 2', '6', '5.99', 'Game')
 ;
 
-INSERT INTO Customers
-	(CUSTOMER_ID, CUSTOMER_PASS)
+INSERT INTO Users
+	(USER_IDX, USER_PASS)
 	VALUES
 		('Junkie','ILoveWeed420'),
 		('FredJohnson','FredsPassword'),
@@ -34,13 +34,13 @@ INSERT INTO Customers
 ;
 
 INSERT INTO Orders
-	(CUSTOMER_ID, ORDER_STATUS)
+	(CUSTOMER_ID,  SHIPPING_ADDRESS, BILLING_ADDRESS, CREDIT_CARD_NUM, CVV_NUM, ORDER_STATUS)
 	VALUES
-		('Junkie','Complete'),
-		('FredJohnson','Complete'),
-		('BenDover','Processing'),
-		('UrMom','Processing'),
-		('Agatha','Complete')
+		('Junkie','1 Main Ave, DeKalb, IL, 60115','1 Main Ave, DeKalb, IL, 60115','420420420420','420','Complete'),
+		('FredJohnson','2 Main Ave, DeKalb, IL, 60115','2 Main Ave, DeKalb, IL, 60115','3715964312432135','555','Complete'),
+		('BenDover','3 Main Ave, DeKalb, IL, 60115','3 Main Ave, DeKalb, IL, 60115','13146573683','666','Processing'),
+		('UrMom','4 Main Ave, DeKalb, IL, 60115','4 Main Ave, DeKalb, IL, 60115','05873242545768','777','Processing'),
+		('Agatha','5 Main Ave, DeKalb, IL, 60115','5 Main Ave, DeKalb, IL, 60115','673232576878','111','Complete')
 ;
 
 INSERT INTO OrderContains
