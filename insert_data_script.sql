@@ -6,7 +6,7 @@ INSERT INTO Inventory
 		('C.H.U.D', '2', '100.00', 'Movie'),
 		('Grand Theft Auto IV', '15', '9.99', 'Game'),
 		('The Sims', '5', '5.99', 'Game'),
-		('Jon Lehuta Documentary', '1', '1000000.00', 'Movie'),
+		('Jon Lehuta Documentary', '1', '10000.00', 'Movie'),
 		('Mario Kart Wii', '10', '7.99', 'Game'),
 		('The Dark Knight', '12', '6.99', 'Movie'),
 		('Jurassic Park', '8', '2.99', 'Movie'),
