@@ -21,7 +21,7 @@
 		
 		<table cellpadding="20" cellspacing="0" border="solid black">
 			<tr>
-				<th><a href="https://www.reddit.com/r/copypasta/comments/gpmpwu/reddit_am_i_the_arsehole/">Create Account</a></th>
+				<th><a href="create_account.php">Create Account</a></th>
 			</tr>
 		</table>
 	</body>
