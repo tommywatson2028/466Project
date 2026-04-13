@@ -41,13 +41,13 @@ INSERT INTO Users
 ;
 
 INSERT INTO Orders
-	(CUSTOMER_ID,  SHIPPING_ADDRESS, BILLING_ADDRESS, CREDIT_CARD_NUM, CVV_NUM, ORDER_STATUS)
+	(CUSTOMER_ID,  SHIPPING_ADDRESS, BILLING_ADDRESS, CREDIT_CARD_NUM, CVV_NUM, ORDER_STATUS, CONTACT_EMAIL)
 	VALUES
-		('Junkie','1 Main Ave, DeKalb, IL, 60115','1 Main Ave, DeKalb, IL, 60115','420420420420','420','Complete'),
-		('FredJohnson','2 Main Ave, DeKalb, IL, 60115','2 Main Ave, DeKalb, IL, 60115','3715964312432135','555','Complete'),
-		('BenDover','3 Main Ave, DeKalb, IL, 60115','3 Main Ave, DeKalb, IL, 60115','13146573683','666','Processing'),
-		('UrMom','4 Main Ave, DeKalb, IL, 60115','4 Main Ave, DeKalb, IL, 60115','05873242545768','777','Processing'),
-		('Agatha','5 Main Ave, DeKalb, IL, 60115','5 Main Ave, DeKalb, IL, 60115','673232576878','111','Complete')
+		('Junkie','1 Main Ave, DeKalb, IL, 60115','1 Main Ave, DeKalb, IL, 60115','420420420420','420','Complete', 'junkie@gmail.com'),
+		('FredJohnson','2 Main Ave, DeKalb, IL, 60115','2 Main Ave, DeKalb, IL, 60115','3715964312432135','555','Complete', 'fred@gmail.com'),
+		('BenDover','3 Main Ave, DeKalb, IL, 60115','3 Main Ave, DeKalb, IL, 60115','13146573683','666','Processing', 'ben@gmail.com'),
+		('UrMom','4 Main Ave, DeKalb, IL, 60115','4 Main Ave, DeKalb, IL, 60115','05873242545768','777','Processing', 'urmom@gmail.com'),
+		('Agatha','5 Main Ave, DeKalb, IL, 60115','5 Main Ave, DeKalb, IL, 60115','673232576878','111','Complete', 'agatha@gmail.com')
 ;
 
 INSERT INTO OrderContains
