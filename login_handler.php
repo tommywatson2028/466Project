@@ -30,10 +30,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		
 		if ($row['IS_OWNER']) {
 			//send owner to view inventory
-			header('Location:  https://google.com');
+			header('Location:  inventory_page.php');
 		} elseif ($row['IS_EMPLOYEE']) {
 			//send employee to order fulfillment
-			header('Location:  https://reddit.com');
+			header('Location:  order_fulfillment.php');
 		} else {
 			//send customer to storefront homepage
 			header('Location:  https://discord.com');
