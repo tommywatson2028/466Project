@@ -26,6 +26,23 @@ if(!$user['IS_EMPLOYEE']) {
 
 ?>
 
+<?php if(isset($_POST['submit_ss'])):
+	$id = $_POST['o_id'];
+	$st = $_POST['o_stat'];
+	$stmt = $pdo->prepare("UPDATE Orders SET ORDER_STATUS = ? WHERE ORDER_ID = ? ");
+	$stmt->execute([$st, $id]);
+	$ss_msg = "Updated Order: $id status to: $st.";
+endif; ?>
+
+<?php if(isset($_POST['submit_sn'])):
+	$id = $_POST['o_id'];
+	$nt = $_POST['o_note'];
+	$stmt = $pdo->prepare("UPDATE Orders SET ORDER_NOTE = ? WHERE ORDER_ID = ? ");
+	$stmt->execute([$nt, $id]);
+        $sn_msg = "Updated Order: $id Note to: $nt.";
+endif; ?>
+
+
 <html>
         <head>
                 <title>Order Fulfillment</title>
@@ -83,7 +100,7 @@ if(!$user['IS_EMPLOYEE']) {
 
 
 		<h3>SET ORDER STATUS</h3>
-                <?php
+               <?php
                 $orders = $pdo->query("SELECT ORDER_ID FROM Orders ORDER BY ORDER_ID")->fetchAll(PDO::FETCH_ASSOC);
                 ?>
 		<form method="post">
@@ -105,15 +122,9 @@ if(!$user['IS_EMPLOYEE']) {
                 	<input type="submit" name="submit_ss" value="Set">
 		</form>
 
-                <?php if (isset($_POST['submit_ss'])):
-                        $id = $_POST['o_id'];
-                        $st = $_POST['o_stat'];
-                        $stmt = $pdo->prepare("UPDATE Orders SET ORDER_STATUS = ? WHERE ORDER_ID = ? ");
-                        $stmt->execute([$st, $id]);
-                        echo "<p>Updated Order: $id status to: $st.</p>";
-		endif; ?>
+		<?php if(isset($ss_msg)) echo "<p>$ss_msg</p>"; ?>
 
-		
+               	
 		<h3>LEAVE ORDER NOTE</h3>
                 <?php
                 $orders = $pdo->query("SELECT ORDER_ID FROM Orders ORDER BY ORDER_ID")->fetchAll(PDO::FETCH_ASSOC);
@@ -132,15 +143,9 @@ if(!$user['IS_EMPLOYEE']) {
 
 			<input type="submit" name="submit_sn" value="Set">
 		</form>
-
-                <?php if (isset($_POST['submit_sn'])):
-                        $id = $_POST['o_id'];
-                        $nt = $_POST['o_note'];
-                        $stmt = $pdo->prepare("UPDATE Orders SET ORDER_NOTE = ? WHERE ORDER_ID = ? ");
-                        $stmt->execute([$nt, $id]);
-                        echo "<p>Updated Order: $id Note to: $nt.</p>";
-                endif; ?>
-
+		
+		<?php if(isset($sn_msg)) echo "<p>$sn_msg</p>"; ?>
+		
 	</body>
 </html>
 
