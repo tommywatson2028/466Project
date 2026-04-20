@@ -99,7 +99,7 @@ if(!$user['IS_EMPLOYEE']) {
                 	Status <select name="o_stat">
 				<option value="Complete">Complete</option>
 				<option value="Processing">Processing</option>
-				<option value="Shipping">Shipped</option>
+				<option value="Shipped">Shipped</option>
 			</select>
 
                 	<input type="submit" name="submit_ss" value="Set">
