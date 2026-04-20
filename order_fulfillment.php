@@ -36,7 +36,7 @@ if(!$user['IS_EMPLOYEE']) {
 		
 		<h2>OUTGOING ORDERS</h2>
 		<?php
-                $sql = "SELECT * FROM Orders WHERE ORDER_STATUS = 'Processing'";
+                $sql = "SELECT * FROM Orders WHERE ORDER_STATUS = 'Processing' OR ORDER_STATUS = 'Shipped'";
                 $result = $pdo->prepare($sql);
                 $result->execute();
                 if($row = $result->fetch(PDO::FETCH_ASSOC)){
@@ -84,7 +84,7 @@ if(!$user['IS_EMPLOYEE']) {
 
 		<h3>SET ORDER STATUS</h3>
                 <?php
-                $orders = $pdo->query("SELECT ORDER_ID FROM Orders WHERE ORDER_STATUS = 'Processing'")->fetchAll(PDO::FETCH_ASSOC);
+                $orders = $pdo->query("SELECT ORDER_ID FROM Orders ORDER BY ORDER_ID")->fetchAll(PDO::FETCH_ASSOC);
                 ?>
 		<form method="post">
                 	Order_ID <select name="o_id">
@@ -97,7 +97,9 @@ if(!$user['IS_EMPLOYEE']) {
 			</select>
 
                 	Status <select name="o_stat">
-                		<option value="Complete">Complete</option>
+				<option value="Complete">Complete</option>
+				<option value="Processing">Processing</option>
+				<option value="Shipping">Shipped</option>
 			</select>
 
                 	<input type="submit" name="submit_ss" value="Set">
