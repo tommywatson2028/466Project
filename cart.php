@@ -45,8 +45,7 @@ if (!isset($_POST['next'])) {
 }
 
 // current user
-$useridx = "Junkie";
-// $_SESSION['useridx'];
+$useridx = $_SESSION['useridx'];
 
 // handle post
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
