@@ -42,4 +42,11 @@
 			}
 		}
 	?>
+	
+	<table cellpadding="20" cellspacing="0" border="solid black">
+		<tr>
+			<th><a href="login_page.php">Return to Login</a></th>
+		</tr>
+	</table>
+	
 </html>

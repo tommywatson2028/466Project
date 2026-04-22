@@ -36,7 +36,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 			header('Location:  order_fulfillment.php');
 		} else {
 			//send customer to storefront homepage
-			header('Location:  https://discord.com');
+			header('Location:  home_page.php');
 		}
 	} else{
 		//login failed send back to login page
