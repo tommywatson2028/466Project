@@ -1,26 +1,26 @@
 INSERT INTO Inventory
-	(PROD_NAME, PROD_QTY, PRICE, PROD_TYPE)
+	(PROD_NAME, PROD_QTY, PRICE, PROD_TYPE, IMG_URL, PROD_DESC)
 	VALUES
-		('Pulp Fiction', '15', '3.99', 'Movie'),
-		('Titanic', '10', '3.99', 'Movie'),
-		('C.H.U.D', '2', '100.00', 'Movie'),
-		('Grand Theft Auto IV', '15', '9.99', 'Game'),
-		('The Sims', '5', '5.99', 'Game'),
-		('Jon Lehuta Documentary', '1', '10000.00', 'Movie'),
-		('Mario Kart Wii', '10', '7.99', 'Game'),
-		('The Dark Knight', '12', '6.99', 'Movie'),
-		('Jurassic Park', '8', '2.99', 'Movie'),
-		('The Matrix', '7', '3.99', 'Movie'),
-		('Forrest Gump', '9', '2.99', 'Movie'),
-		('Gladiator', '6', '3.99', 'Movie'),
-		('Interstellar', '11', '6.99', 'Movie'),
-		('Halo 3', '14', '9.99', 'Game'),
-		('Call of Duty: Modern Warfare', '20', '9.99', 'Game'),
-		('Minecraft', '25', '7.99', 'Game'),
-		('The Legend of Zelda: Twilight Princess', '8', '7.99', 'Game'),
-		('Madden NFL 08', '10', '4.99', 'Game'),
-		('Spider-Man 2', '3', '3.99', 'Movie'),
-		('Rock Band 2', '6', '5.99', 'Game')
+		('Pulp Fiction', '15', '3.99', 'Movie', 'https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/Pulp_Fiction_%281994%29_poster.jpg/250px-Pulp_Fiction_%281994%29_poster.jpg'),
+		('Titanic', '10', '3.99', 'Movie', 'https://upload.wikimedia.org/wikipedia/en/thumb/1/18/Titanic_%281997_film%29_poster.png/250px-Titanic_%281997_film%29_poster.png'),
+		('C.H.U.D', '2', '100.00', 'Movie', 'https://upload.wikimedia.org/wikipedia/en/thumb/7/7a/CHUD_poster.jpg/250px-CHUD_poster.jpg'),
+		('Grand Theft Auto IV', '15', '9.99', 'Game', 'https://upload.wikimedia.org/wikipedia/en/thumb/b/b7/Grand_Theft_Auto_IV_cover.jpg/250px-Grand_Theft_Auto_IV_cover.jpg'),
+		('The Sims', '5', '5.99', 'Game', 'https://upload.wikimedia.org/wikipedia/en/thumb/d/db/The_Sims_Online_Cover.jpg/250px-The_Sims_Online_Cover.jpg'),
+		('Jon Lehuta Documentary', '1', '10000.00', 'Movie', ''),
+		('Mario Kart Wii', '10', '7.99', 'Game', 'https://upload.wikimedia.org/wikipedia/en/d/d6/Mario_Kart_Wii.png'),
+		('The Dark Knight', '12', '6.99', 'Movie', 'https://upload.wikimedia.org/wikipedia/en/thumb/1/1c/The_Dark_Knight_%282008_film%29.jpg/250px-The_Dark_Knight_%282008_film%29.jpg'),
+		('Jurassic Park', '8', '2.99', 'Movie', 'https://upload.wikimedia.org/wikipedia/en/e/e7/Jurassic_Park_poster.jpg'),
+		('The Matrix', '7', '3.99', 'Movie', 'https://upload.wikimedia.org/wikipedia/en/thumb/d/db/The_Matrix.png/250px-The_Matrix.png'),
+		('Forrest Gump', '9', '2.99', 'Movie', 'https://upload.wikimedia.org/wikipedia/en/6/67/Forrest_Gump_poster.jpg'),
+		('Gladiator', '6', '3.99', 'Movie', 'https://upload.wikimedia.org/wikipedia/en/thumb/f/fb/Gladiator_%282000_film_poster%29.png/250px-Gladiator_%282000_film_poster%29.png'),
+		('Interstellar', '11', '6.99', 'Movie', 'https://upload.wikimedia.org/wikipedia/en/b/bc/Interstellar_film_poster.jpg'),
+		('Halo 3', '14', '9.99', 'Game', 'https://upload.wikimedia.org/wikipedia/en/thumb/b/b4/Halo_3_final_boxshot.JPG/250px-Halo_3_final_boxshot.JPG'),
+		('Call of Duty: Modern Warfare', '20', '9.99', 'Game', 'https://upload.wikimedia.org/wikipedia/en/thumb/5/5f/Call_of_Duty_4_Modern_Warfare.jpg/250px-Call_of_Duty_4_Modern_Warfare.jpg'),
+		('Minecraft', '25', '7.99', 'Game', 'https://minecraft.wiki/images/thumb/Minecraft_xbox360_retail_cover.jpg/800px-Minecraft_xbox360_retail_cover.jpg?1cb57'),
+		('The Legend of Zelda: Twilight Princess', '8', '7.99', 'Game', 'https://upload.wikimedia.org/wikipedia/en/0/0e/The_Legend_of_Zelda_Twilight_Princess_Game_Cover.jpg'),
+		('Madden NFL 08', '10', '4.99', 'Game', 'https://upload.wikimedia.org/wikipedia/en/4/4c/Madden_NFL_08_Coverart.png'),
+		('Spider-Man 2', '3', '3.99', 'Movie', 'https://upload.wikimedia.org/wikipedia/en/thumb/4/4e/Spider-Man_2_USA_poster.jpg/250px-Spider-Man_2_USA_poster.jpg'),
+		('Rock Band 2', '6', '5.99', 'Game', 'https://upload.wikimedia.org/wikipedia/en/0/01/Rock_Band_2_Game_Cover.JPG')
 ;
 
 INSERT INTO Users
