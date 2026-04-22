@@ -181,7 +181,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 INSERT INTO Orders
                 (CUSTOMER_ID, ORDER_STATUS, CONTACT_EMAIL, SHIPPING_ADDRESS, BILLING_ADDRESS, CREDIT_CARD_NUM, CVV_NUM, ORDER_NOTE)
                 VALUES
-                (:u, 'PROCESSING', :e, :s, :b, :c, :v, :n)
+                (:u, 'Processing', :e, :s, :b, :c, :v, :n)
             ")->execute([
                 ':u' => $useridx,
                 ':e' => $contact_email,
