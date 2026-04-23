@@ -7,17 +7,14 @@
     }
     $useridx = $_SESSION['useridx'] ;
 
-	try { 
-	
-		$username = "z2040318";
-		$password = "2006Apr21";
-
-		$dsn = "mysql:host=courses;dbname=z2040318";
+	include 'set_connection_params.php';
+	try {
 		$pdo = new PDO($dsn, $username, $password);
-		}
-	catch(PDOException $e) { 
-		echo "Connection to database failed: " . $e->getMessage();
-	}
+	} 
+	catch(PDOException $e) {
+		echo "Connection to db failed: " . $e->getMessage();
+	exit();
+  }
 
 $result = $pdo->prepare("
     SELECT 
