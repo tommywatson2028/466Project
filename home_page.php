@@ -110,14 +110,17 @@ $items = $call->fetchAll(PDO::FETCH_ASSOC);
 
         <h4><?php echo $item['PROD_NAME']; ?></h4>
 
-        <p><?php echo $item['PROD_DESC']; ?></p>
-
         <p>Type: <?php echo $item['PROD_TYPE']; ?></p>
 
         <p>Price: $<?php echo $item['PRICE']; ?></p>
 
         <p>Stock: <?php echo $item['PROD_QTY']; ?></p>
 
+        <form method="POST" action="alternate_view.php">
+            <input type="hidden" name="prod_id" value="<?php echo $item['PROD_ID']; ?>">
+            <button type="submit" name="see_details">See Details</button>
+        </form>
+		
         <form method="POST">
             <input type="hidden" name="prod_id" value="<?php echo $item['PROD_ID']; ?>">
             <button type="submit" name="add_to_cart">Add to Cart</button>
