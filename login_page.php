@@ -1,27 +1,34 @@
 <html>
 	<head>
 		<title> Login </title>
+		<link rel="stylesheet" href="styles.css">
 	</head>
 	
-	<body>
-		<h1> This Is The Login Page </h1>
+	<body class="page">
+		<h1 class="title"> BLOCkBUSTERS  </h1>
 
 		<?php
-			//if the user is coming back from a failed login attempt by the handler, show a message
+			// show error if login failed
 			if(isset($_GET['failed'])){
-				echo "<p style=\"color:red;\"><b>Login attempt failed, please try again</b></p>";
+				echo "<p class='error'>Login attempt failed, please try again</p>";
 			}
 		?>
 		
-		<form method="POST" action="login_handler.php"> 
-			Username: <input type="text" name="useridx"><br>
-			Password: <input type="password" name="userpass"><br>
-			<input type="submit"><br>
+		<form method="POST" action="login_handler.php" class="login-form"> 
+			<label>Username:</label><br>
+			<input type="text" name="useridx" class="input-field"><br>
+
+			<label>Password:</label><br>
+			<input type="password" name="userpass" class="input-field"><br>
+
+			<input type="submit" class="submit-btn"><br>
 		</form>
 		
-		<table cellpadding="20" cellspacing="0" border="solid black">
+		<table class="account-table" cellpadding="20" cellspacing="0">
 			<tr>
-				<th><a href="create_account.php">Create Account</a></th>
+				<th>
+					<a href="create_account.php" class="account-link">Create Account</a>
+				</th>
 			</tr>
 		</table>
 	</body>
