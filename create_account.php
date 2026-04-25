@@ -1,14 +1,21 @@
 <html>
 	<head>
 		<title> Create Account </title>
+		<link rel="stylesheet" href="styles.css">
 	</head>
 	
-	<h1>Create a New Account</h1>
+	<body class="page">
+
+	<h1 class="title">Create a New Account</h1>
 	
-	<form method="POST" action="">
-		<p>Username (must be unique)</p><input name="useridx" type="text"><br>
-		<p>Password</p><input name="userpass" type="text"><br>
-		<input type="submit">
+	<form method="POST" action="" class="login-form">
+		<p>Username (must be unique)</p>
+		<input name="useridx" type="text" class="input-field"><br>
+
+		<p>Password</p>
+		<input name="userpass" type="password" class="input-field"><br>
+
+		<input type="submit" class="submit-btn">
 	</form>
 	
 	<?php
@@ -18,15 +25,14 @@
 			
 			//connect to database
 			include 'set_connection_params.php';
-			try { // if something goes wrong, an exception is thrown
+			try {
 				$pdo = new PDO($dsn, $username, $password);
 			}
-			catch(PDOException $e) { // handle that exception
-				echo "Connection to database failed: " . $e->getMessage();
+			catch(PDOException $e) {
+				echo "<p class='error'>Connection failed: " . $e->getMessage() . "</p>";
 			}
 		
-			//check if the current username already exists
-			//if it does, tell user to resubmit form
+			//check if username already exists
 			$sql = "SELECT USER_IDX FROM Users WHERE USER_IDX = :useridx";
 			$result = $pdo->prepare($sql);
 			$result->execute([':useridx' => $useridx]);
@@ -36,17 +42,21 @@
 				$sql = "INSERT INTO Users (USER_IDX, USER_PASS) VALUES (:useridx,:userpass)";
 				$prepared = $pdo->prepare($sql);
 				$prepared->execute([':useridx' => $useridx,':userpass' => $userpass]);
-				echo "<p>New account with username ". $useridx ." successfully added</p>";
+
+				echo "<p>New account with username $useridx successfully added</p>";
 			} else{
-				echo "<p>Provided username already exists, please resubmit the form with a different username</p>";
+				echo "<p class='error'>Username already exists, please choose another</p>";
 			}
 		}
 	?>
 	
-	<table cellpadding="20" cellspacing="0" border="solid black">
+	<table class="account-table" cellpadding="20" cellspacing="0">
 		<tr>
-			<th><a href="login_page.php">Return to Login</a></th>
+			<th>
+				<a href="login_page.php" class="account-link">Return to Login</a>
+			</th>
 		</tr>
 	</table>
-	
+
+	</body>
 </html>
