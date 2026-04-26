@@ -6,7 +6,7 @@ INSERT INTO Inventory
 		('C.H.U.D', '2', '100.00', 'Movie', 'https://upload.wikimedia.org/wikipedia/en/thumb/7/7a/CHUD_poster.jpg/250px-CHUD_poster.jpg', 'A cult horror film about underground creatures in New York City.'),
 		('Grand Theft Auto IV', '15', '9.99', 'Game', 'https://upload.wikimedia.org/wikipedia/en/thumb/b/b7/Grand_Theft_Auto_IV_cover.jpg/250px-Grand_Theft_Auto_IV_cover.jpg', 'An open-world crime game following an immigrant navigating Liberty City.'),
 		('The Sims', '5', '5.99', 'Game', 'https://upload.wikimedia.org/wikipedia/en/thumb/d/db/The_Sims_Online_Cover.jpg/250px-The_Sims_Online_Cover.jpg', 'A life simulation game where players control characters and their daily lives.'),
-		('Jon Lehuta Documentary', '1', '10000.00', 'Movie', '/jonDoc.png', 'A rare documentary chronicling the legendary life of Jon Lehuta.'),
+		('Jon Lehuta Documentary', '1', '10000.00', 'Movie', 'jonDoc.png', 'A rare documentary chronicling the legendary life of Jon Lehuta.'),
 		('Mario Kart Wii', '10', '7.99', 'Game', 'https://upload.wikimedia.org/wikipedia/en/d/d6/Mario_Kart_Wii.png', 'A fast-paced kart racing game featuring iconic Nintendo characters.'),
 		('The Dark Knight', '12', '6.99', 'Movie', 'https://upload.wikimedia.org/wikipedia/en/thumb/1/1c/The_Dark_Knight_%282008_film%29.jpg/250px-The_Dark_Knight_%282008_film%29.jpg', 'Batman faces the Joker in a gritty battle for Gotham City.'),
 		('Jurassic Park', '8', '2.99', 'Movie', 'https://upload.wikimedia.org/wikipedia/en/e/e7/Jurassic_Park_poster.jpg', 'Scientists bring dinosaurs back to life in a disastrous theme park.'),
