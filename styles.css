@@ -43,7 +43,7 @@
 
 .account-table {
     margin: 20px auto;
-    border: 3px solid #ffcc00; /* thicker border */
+    border: 3px solid #ffcc00;  
     background-color: #001f3f;
 }
 
@@ -84,7 +84,7 @@
   width: 220px;
 }
 
-/* PRODUCT TEXT */
+ 
 .product-name {
   color: #ffcc00;
   margin-bottom: 10px;
