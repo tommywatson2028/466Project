@@ -56,9 +56,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 <br>
 
-<div class="account-table">
-    <a href="home_page.php" class="account-link">Back To Homepage</a>
-</div>
+<table class="account-table">
+	<tr>
+    	<td> <a href="home_page.php" class="account-link">Back To Homepage</a> </td>
+    <tr>
+</table>
 
 </body>
 </html>
