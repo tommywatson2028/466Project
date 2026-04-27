@@ -35,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 <div class="card" style="margin: 0 auto; width: 300px;">
 
-    <div class="img-container">
+    <div class="alt-img-container">
         <img class="product-img" src="<?php echo $item['IMG_URL']; ?>" 
              alt="Image of <?php echo $item['PROD_NAME']; ?>">
     </div>
