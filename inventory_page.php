@@ -14,28 +14,41 @@ try {
 	exit();
   }
 
-$sql = "SELECT IS_OWNER FROM Users WHERE USER_IDX = :useridx";
+$sql = "SELECT IS_OWNER, IS_EMPLOYEE FROM Users WHERE USER_IDX = :useridx";
 $prep = $pdo->prepare($sql);
 $prep->execute([':useridx' => $_SESSION['useridx']]);
 $user = $prep->fetch();
 
 if(!$user['IS_OWNER']) {
-	header('Location: login_page.php');
-	exit();
+	if($user['IS_EMPLOYEE']) {
+		header('Location: order_fulfillment.php');
+		exit();
+	} else { 
+		header('Location: login_page.php');
+		exit();
+	}
 }
 
 ?>
 
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>Inventory</title>
+		<link rel="stylesheet" href="styles.css">
 		<style> table, th, td { border: 1px solid black; } </style>
 	</head>
 	
-	<body>
-		<a href="order_fulfillment.php"><h2>To Order Fullfillment</h2></a>
+	<body class="adm-page">
+		<h1 class="title">INVENTORY</h1>
+		<nav class="nav-bar">
+			<a href="order_fulfillment.php" class="nav-link">Order Fullfillment</a>
+		</nav>
+		<hr>
+		<h2 class="table-title">In Stock</h2>
+		<div class="container">
 		<?php
-		$sql = "SELECT PROD_ID, PROD_NAME, PROD_DESC, PROD_TYPE, PRICE, PROD_QTY FROM Inventory";
+		$sql = "SELECT PROD_ID, PROD_NAME, PROD_DESC, PROD_TYPE, PRICE, PROD_QTY FROM Inventory WHERE PROD_QTY > 0";
 		$result = $pdo->prepare($sql);
 		$result->execute();
         	if($row = $result->fetch(PDO::FETCH_ASSOC)){
@@ -48,17 +61,40 @@ if(!$user['IS_OWNER']) {
             		do {
                 		echo "<tr>";
 				foreach($row as $col => $entry){
-					if($col === 'PROD_QTY') {
-						$color = $entry > 0 ? "green" : "red";
-						echo "<td bgcolor=\"$color\">" . $entry . "</td>";
-					} else {
-                    				echo "<td bgcolor=lightgrey>" . $entry . "</td>";
-					}
+			        	echo "<td bgcolor=lightgrey>" . $entry . "</td>";
                 		}
-                		echo "</tr>";
+				echo "</tr>";
+
             		} while($row = $result->fetch(PDO::FETCH_ASSOC));
             		echo "</table>";
         	}
 		?>	
+		</div>
+
+		<h2 class="table-title">Out of Stock</h2>
+		<div class="container">
+		<?php
+                $sql = "SELECT PROD_ID, PROD_NAME, PROD_DESC, PROD_TYPE, PRICE, PROD_QTY FROM Inventory WHERE PROD_QTY < 1";
+                $result = $pdo->prepare($sql);
+                $result->execute();
+		if($row = $result->fetch(PDO::FETCH_ASSOC)){
+                        echo "<table cellspacing=0 cellpadding=10 border=1>";
+                        echo "<tr>";
+                        foreach(array_keys($row) as $header){
+                                echo "<th bgcolor=grey>" . $header . "</th>";
+                        }
+                        echo "</tr>";
+                        do {
+                                echo "<tr>";
+                                foreach($row as $col => $entry){
+                                        echo "<td bgcolor=lightgrey>" . $entry . "</td>";
+                                }
+                                echo "</tr>";
+
+                        } while($row = $result->fetch(PDO::FETCH_ASSOC));
+			echo "</table>";
+                }
+		?>
+		</div>
 	</body>
 </html>
