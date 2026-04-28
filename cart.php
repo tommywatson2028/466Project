@@ -41,8 +41,7 @@
         $_SESSION['checkout'] = false;
     }
 
-    // $useridx = $_SESSION['useridx'];
-    $useridx = 'BenDover'; // example user
+    $useridx = $_SESSION['useridx'];
 
     // handle post requests
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
