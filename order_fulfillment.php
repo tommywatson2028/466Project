@@ -57,14 +57,16 @@ endif; ?>
 		</nav>
 		<hr>
 
-		<div class="container">		
-		<h2 class="table-title">OUTGOING ORDERS</h2>
+		<div class="container">	
+
+		<div class="adm-card">	
+		<h1 class="table-title">OUTGOING ORDERS</h1>
 		<?php
                 $sql = "SELECT * FROM Orders WHERE ORDER_STATUS = 'Processing' OR ORDER_STATUS = 'Shipped'";
                 $result = $pdo->prepare($sql);
                 $result->execute();
-                if($row = $result->fetch(PDO::FETCH_ASSOC)){
-                        echo "<table cellspacing=0 cellpadding=10 border=1>";
+		if($row = $result->fetch(PDO::FETCH_ASSOC)){
+                        echo "<table cellspacing=0 cellpadding=10 border=1 align=center>";
                         echo "<tr>";
                         foreach(array_keys($row) as $header){
                                 echo "<th bgcolor=grey>" . $header . "</th>";
@@ -81,17 +83,20 @@ endif; ?>
                                 }
                                 echo "</tr>";
                         } while($row = $result->fetch(PDO::FETCH_ASSOC));
-                        echo "</table>";
+			echo "</table>";
+			
                 }
-                ?>
+		?>	
+		</div>
 
-		<h3 class="table-title">COMPLETED ORDERS</h3>
+		<div class="adm-card">
+		<h1 class="table-title">COMPLETED ORDERS</h1>
                 <?php
                 $sql = "SELECT * FROM Orders WHERE ORDER_STATUS = 'Complete'";
                 $result = $pdo->prepare($sql);
                 $result->execute();
                 if($row = $result->fetch(PDO::FETCH_ASSOC)){
-                        echo "<table cellspacing=0 cellpadding=10 border=1>";
+                        echo "<table cellspacing=0 cellpadding=10 border=1 align=center>";
                         echo "<tr>";
                         foreach(array_keys($row) as $header){
                                 echo "<th bgcolor=grey>" . $header . "</th>";
@@ -110,7 +115,8 @@ endif; ?>
                         } while($row = $result->fetch(PDO::FETCH_ASSOC));
 			echo "</table>";
                 }
-                ?>
+		?>
+		</div>
 
 		<div class="adm-card">
 		<h3 class="form-title">SEE ORDER CONTENTS</h3>

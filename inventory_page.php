@@ -45,14 +45,17 @@ if(!$user['IS_OWNER']) {
 			<a href="order_fulfillment.php" class="nav-link">Order Fullfillment</a>
 		</nav>
 		<hr>
-		<h2 class="table-title">In Stock</h2>
+
 		<div class="container">
+
+		<div class="adm-card">
+		<h1 class="table-title">In Stock</h1>
 		<?php
 		$sql = "SELECT PROD_ID, PROD_NAME, PROD_DESC, PROD_TYPE, PRICE, PROD_QTY FROM Inventory WHERE PROD_QTY > 0";
 		$result = $pdo->prepare($sql);
 		$result->execute();
         	if($row = $result->fetch(PDO::FETCH_ASSOC)){
-            		echo "<table cellspacing=0 cellpadding=10 border=1>";
+            		echo "<table cellspacing=0 cellpadding=10 border=1 align=center>";
             		echo "<tr>";
             		foreach(array_keys($row) as $header){
                 		echo "<th bgcolor=grey>" . $header . "</th>";
@@ -70,15 +73,15 @@ if(!$user['IS_OWNER']) {
         	}
 		?>	
 		</div>
-
-		<h2 class="table-title">Out of Stock</h2>
-		<div class="container">
+		
+		<div class="adm-card">
+		<h1 class="table-title">Out of Stock</h1>
 		<?php
                 $sql = "SELECT PROD_ID, PROD_NAME, PROD_DESC, PROD_TYPE, PRICE, PROD_QTY FROM Inventory WHERE PROD_QTY < 1";
                 $result = $pdo->prepare($sql);
                 $result->execute();
 		if($row = $result->fetch(PDO::FETCH_ASSOC)){
-                        echo "<table cellspacing=0 cellpadding=10 border=1>";
+                        echo "<table cellspacing=0 cellpadding=10 border=1 align=center>";
                         echo "<tr>";
                         foreach(array_keys($row) as $header){
                                 echo "<th bgcolor=grey>" . $header . "</th>";
@@ -95,6 +98,8 @@ if(!$user['IS_OWNER']) {
 			echo "</table>";
                 }
 		?>
+		</div>
+
 		</div>
 	</body>
 </html>
