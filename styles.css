@@ -115,3 +115,37 @@
   max-width: 100%;
   max-height: 100%;
 }
+
+/* Inventory and Order Fulfill Styles */
+.adm-page {
+ background-color: #001023;
+ color: black;
+ font-family: Arial, sans-serif;
+ text-align: center;
+ margin-top: 60px;
+}
+
+.table-title {
+  color: #ffcc00;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.form-title {
+  color: #ffcc00;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.form-desc {
+  color: white;
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.adm-card {
+  background-color: #041426;
+  padding: 20px;
+  width: 100%;
+}
+
