@@ -84,13 +84,13 @@ foreach ($result as $row) {
         $order_total = 0;
 
         echo "<h3 class='table-title'>Order #{$current_order} ({$row['ORDER_STATUS']})</h3>";
-
-        echo "<table border class='account-table'>
+        
+        echo "<table cellspacing='0' cellpadding='10' border='1' class='account-table'>
                 <tr>
-                    <th>Product</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Total</th>
+                    <th style='background-color:#041426;'>Product</th>
+                    <th style='background-color:#041426;'>Quantity</th>
+                    <th style='background-color:#041426;'>Price</th>
+                    <th style='background-color:#041426;'>Total</th>
                 </tr>";
     }
 
