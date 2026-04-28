@@ -192,17 +192,6 @@
 
             <!-- all the inputs -->
             <form method="post" class="login-form">
-                Email <br>
-                <input class="input-field" name="contact_email" 
-                value="<?php echo htmlspecialchars($_POST['contact_email'] ?? ''); ?>"><br>
-
-                Shipping Address<br>
-                <input class="input-field" name="shipping_address" 
-                value="<?php echo htmlspecialchars($_POST['shipping_address'] ?? ''); ?>"><br>
-
-                Billing Address<br>
-                <input class="input-field" name="billing_address" 
-                value="<?php echo htmlspecialchars($_POST['billing_address'] ?? ''); ?>"><br>
 
                 Credit Card Number<br>
                 <input class="input-field" name="credit_card_num" 
@@ -210,7 +199,19 @@
 
                 Security Code<br>
                 <input class="input-field" name="cvv_num" 
-                value="<?php echo htmlspecialchars($_POST['cvv_num'] ?? ''); ?>"><br>
+                value="<?php echo htmlspecialchars($_POST['cvv_num'] ?? ''); ?>"><br><br>
+
+                Email <br>
+                <input class="input-field" name="contact_email" 
+                value="<?php echo htmlspecialchars($_POST['contact_email'] ?? ''); ?>"><br><br>
+
+                Billing Address<br>
+                <input class="input-field" name="billing_address" 
+                value="<?php echo htmlspecialchars($_POST['billing_address'] ?? ''); ?>"><br>
+
+                Shipping Address<br>
+                <input class="input-field" name="shipping_address" 
+                value="<?php echo htmlspecialchars($_POST['shipping_address'] ?? ''); ?>"><br><br>
 
                 Order Note<br>
                 <input class="input-field" name="order_note" 

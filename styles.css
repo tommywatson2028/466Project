@@ -149,3 +149,29 @@
   width: 100%;
 }
 
+.cart-row {
+  background-color: #001f3f;
+  border: 3px solid #ffcc00;
+  width: 700px;
+  margin: 5px auto;
+  padding: 10px;
+}
+
+.cart-line {
+  display: flex;
+  align-items: center;
+}
+
+.cart-info {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.cart-actions {
+  margin-left: auto;
+}
+
+.cart-actions form {
+  display: inline;
+}

@@ -144,6 +144,12 @@
     $stmt->execute([':u' => $useridx]);
     $items = $stmt->fetchAll();
 
+    $total = 0;
+
+    foreach ($items as $item) {
+        $total += $item['PRICE'] * $item['ORDER_QTY'];
+    }
+
 ?>
 
 <html>
@@ -162,30 +168,49 @@
 
             <!-- loop through cart items -->
             <?php foreach ($items as $item): ?>
-                <div class="card">
+                <div class="cart-row">
 
-                    <!-- product name -->
-                    <h3 class="product-name"><?php echo $item['PROD_NAME']; ?></h3>
+                    <div class="cart-line">
 
-                    <!-- product quantity and total price -->
-                    <p>Qty : <?php echo $item['ORDER_QTY']; ?></p>
-                    <p>Price : $<?php echo $item['PRICE'] * $item['ORDER_QTY']; ?></p>
+                        <div class="cart-info">
 
-                    <!-- add one item -->
-                    <form method="post" style="display:inline;">
-                        <input type="hidden" name="prod_id" value="<?php echo $item['PROD_ID']; ?>">
-                        <button class="submit-btn" name="action" value="plus">+</button>
-                    </form>
+                            <h3 class="product-name">
+                                <?php echo $item['PROD_NAME']; ?>
+                            </h3>
 
-                    <!-- remove one item -->
-                    <form method="post" style="display:inline;">
-                        <input type="hidden" name="prod_id" value="<?php echo $item['PROD_ID']; ?>">
-                        <button class="submit-btn" name="action" value="minus">-</button>
-                    </form>
+                            <span>
+                                Qty : <?php echo $item['ORDER_QTY']; ?>
+                            </span>
+
+                            <span>
+                                Price : $<?php echo $item['PRICE'] * $item['ORDER_QTY']; ?>
+                            </span>
+
+                        </div>
+
+                        <div class="cart-actions">
+
+                            <form method="post">
+                                <input type="hidden" name="prod_id" value="<?php echo $item['PROD_ID']; ?>">
+                                <button class="submit-btn" name="action" value="plus">+</button>
+                            </form>
+
+                            <form method="post">
+                                <input type="hidden" name="prod_id" value="<?php echo $item['PROD_ID']; ?>">
+                                <button class="submit-btn" name="action" value="minus">-</button>
+                            </form>
+
+                        </div>
+
+                    </div>
 
                 </div>
             <?php endforeach; ?>
 
+        </div>
+
+        <div class="panel">
+            <h2 class="product-name">Total: $<?php echo number_format($total, 2); ?></h2>
         </div>
 
         <!-- go to payment page -->
