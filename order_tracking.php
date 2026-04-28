@@ -16,6 +16,18 @@
 	exit();
   }
 
+$total_result = $pdo->prepare("
+    SELECT SUM(OrderContains.ORDER_QTY * Inventory.PRICE) AS GRAND_TOTAL
+    FROM Orders
+    JOIN OrderContains ON Orders.ORDER_ID = OrderContains.ORDER_ID
+    JOIN Inventory ON OrderContains.PROD_ID = Inventory.PROD_ID
+    WHERE Orders.CUSTOMER_ID = ?
+");
+
+$total_result->execute([$useridx]);
+$total_row = $total_result->fetch();
+$grand_total = $total_row['GRAND_TOTAL'] ?? 0;
+
 $result = $pdo->prepare("
     SELECT 
         Orders.ORDER_ID,
@@ -29,7 +41,7 @@ $result = $pdo->prepare("
     JOIN Inventory
         ON OrderContains.PROD_ID = Inventory.PROD_ID
     WHERE Orders.CUSTOMER_ID = ? 
-    ORDER BY Orders.ORDER_ID
+    ORDER BY Orders.ORDER_ID DESC
     ");
 
 $result->execute([$useridx]);
@@ -37,17 +49,22 @@ $result->execute([$useridx]);
 
 <html>
 <head>
-    <link rel="stylesheet" href="styles.css">
     <title>Order Tracking</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="page">
     <h1 class="title">My Orders</h1>
 
+<div class="nav-bar">
+    <a href="home_page.php" class="nav-link"> ← Back to Home</a>
+</div>
+
+<h2>Grand Orders Total: $<?php echo number_format($grand_total, 2); ?></h2>
+
 <?php
 $current_order = null;
 $order_total = 0;
-$grand_total = 0;
 $found = false;
 
 foreach ($result as $row) {
@@ -78,7 +95,6 @@ foreach ($result as $row) {
     }
 
     $item_total = $row['ORDER_QTY'] * $row['PRICE'];
-    $grand_total += $item_total;
     $order_total += $item_total;
 
     echo "<tr>
@@ -101,14 +117,6 @@ if (!$found) {
     echo "<p class='error'>No orders found.</p>";
 }
 
-if ($found) {
-    echo "<h2>Orders Total: $" . number_format($grand_total, 2) . "</h2>";
-}
 ?>
-
-<div class="nav-bar">
-    <a href="home_page.php" class="nav-link"> ← Back to Home</a>
-</div>
-
 </body>
 </html>
