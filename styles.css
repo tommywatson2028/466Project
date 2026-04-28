@@ -168,6 +168,14 @@
   align-items: center;
 }
 
+.cart-info h3,
+.cart-info span {
+  margin: 0;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
 .cart-actions {
   margin-left: auto;
 }
