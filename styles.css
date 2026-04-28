@@ -185,3 +185,9 @@
 .cart-actions form {
   display: inline;
 }
+
+.disabled-btn {
+    background-color: gray;
+    color: white;
+    cursor: not-allowed;
+}
