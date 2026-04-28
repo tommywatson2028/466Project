@@ -41,8 +41,8 @@
         $_SESSION['checkout'] = false;
     }
 
-    // $useridx = $_SESSION['useridx'];
-    $useridx = 'BenDover';
+    $useridx = $_SESSION['useridx'];
+    // $useridx = 'BenDover';
 
     // handle post requests
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -173,6 +173,10 @@
                     <div class="cart-line">
 
                         <div class="cart-info">
+
+                            <span class="cart-product-image">
+                                <?php echo $item['IMG_URL']; ?>
+                            </span>
 
                             <span class="cart-product-name">
                                 <?php echo $item['PROD_NAME']; ?>
