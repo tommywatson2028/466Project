@@ -64,7 +64,6 @@ $items = $call->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -102,16 +101,25 @@ $items = $call->fetchAll(PDO::FETCH_ASSOC);
         <p>Price: $<?php echo $item['PRICE']; ?></p>
 
         <p>Stock: <?php echo $item['PROD_QTY']; ?></p>
-        
-          <form method="POST" action="alternate_view.php">
-            <input type="hidden" name="prod_id" value="<?php echo $item['PROD_ID']; ?>">
-            <button type="submit" name="see_details"  class="submit-btn">See Details</button>
-        </form>
 
-        <form method="POST">
+        <form method="POST" action="alternate_view.php">
             <input type="hidden" name="prod_id" value="<?php echo $item['PROD_ID']; ?>">
-            <button type="submit" name="add_to_cart" class="submit-btn">Add to Cart</button>
+            <button type="submit" name="see_details"  class="submit-btn" >See Details</button>
         </form>
+		
+
+        <?php if ($item['PROD_QTY'] > 0): ?>
+            <form method="POST">
+                <input type="hidden" name="prod_id" value="<?php echo $item['PROD_ID']; ?>">
+                <button type="submit" name="add_to_cart" class="submit-btn">
+                    Add to Cart
+                </button>
+            </form>
+        <?php else: ?>
+            <button class="submit-btn disabled-btn" disabled>
+                Out of Stock
+            </button>
+        <?php endif; ?>
 
     </div>
 
