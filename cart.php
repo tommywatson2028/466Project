@@ -41,7 +41,8 @@
         $_SESSION['checkout'] = false;
     }
 
-    $useridx = $_SESSION['useridx'];
+    // $useridx = $_SESSION['useridx'];
+    $useridx = 'BenDover';
 
     // handle post requests
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -163,7 +164,7 @@
         <h1 class="title">Cart</h1>
 
         <!-- cart item container -->
-        <div class="container">
+        <div class="cart-list">
 
             <!-- loop through cart items -->
             <?php foreach ($items as $item): ?>
@@ -173,9 +174,9 @@
 
                         <div class="cart-info">
 
-                            <h3 class="product-name">
+                            <span class="cart-product-name">
                                 <?php echo $item['PROD_NAME']; ?>
-                            </h3>
+                            </span>
 
                             <span>
                                 Qty : <?php echo $item['ORDER_QTY']; ?>
@@ -187,19 +188,19 @@
 
                         </div>
 
-                        <div class="cart-actions">
+                            <div class="cart-actions">
 
-                            <form method="post">
-                                <input type="hidden" name="prod_id" value="<?php echo $item['PROD_ID']; ?>">
-                                <button class="submit-btn" name="action" value="plus">+</button>
-                            </form>
+                                <form method="post">
+                                    <input type="hidden" name="prod_id" value="<?php echo $item['PROD_ID']; ?>">
+                                    <button class="submit-btn" name="action" value="plus">+</button>
+                                </form>
 
-                            <form method="post">
-                                <input type="hidden" name="prod_id" value="<?php echo $item['PROD_ID']; ?>">
-                                <button class="submit-btn" name="action" value="minus">-</button>
-                            </form>
+                                <form method="post">
+                                    <input type="hidden" name="prod_id" value="<?php echo $item['PROD_ID']; ?>">
+                                    <button class="submit-btn" name="action" value="minus">-</button>
+                                </form>
 
-                        </div>
+                            </div>
 
                     </div>
 
@@ -217,6 +218,12 @@
             <form method="post">
                 <button class="submit-btn" type="submit" name="next">Next</button>
             </form>
+        </div>
+
+        <br><br>
+        
+        <div>
+            <a class="submit-btn" href="home_page.php">Back to Home Page.</a>
         </div>
 
     </body>
