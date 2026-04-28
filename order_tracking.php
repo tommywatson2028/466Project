@@ -37,15 +37,17 @@ $result->execute([$useridx]);
 
 <html>
 <head>
+    <link rel="stylesheet" href="styles.css">
     <title>Order Tracking</title>
 </head>
 
-<body>
-    <h1>My Orders</h1>
+<body class="page">
+    <h1 class="title">My Orders</h1>
 
 <?php
 $current_order = null;
 $order_total = 0;
+$grand_total = 0;
 $found = false;
 
 foreach ($result as $row) {
@@ -64,9 +66,9 @@ foreach ($result as $row) {
         $current_order = $row['ORDER_ID'];
         $order_total = 0;
 
-        echo "<h3>Order #{$current_order} ({$row['ORDER_STATUS']})</h3>";
+        echo "<h3 class='table-title'>Order #{$current_order} ({$row['ORDER_STATUS']})</h3>";
 
-        echo "<table border='1'>
+        echo "<table border class='account-table'>
                 <tr>
                     <th>Product</th>
                     <th>Quantity</th>
@@ -76,6 +78,7 @@ foreach ($result as $row) {
     }
 
     $item_total = $row['ORDER_QTY'] * $row['PRICE'];
+    $grand_total += $item_total;
     $order_total += $item_total;
 
     echo "<tr>
@@ -95,11 +98,17 @@ if ($current_order !== null) {
 }
 
 if (!$found) {
-    echo "<p>No orders found.</p>";
+    echo "<p class='error'>No orders found.</p>";
+}
+
+if ($found) {
+    echo "<h2>Orders Total: $" . number_format($grand_total, 2) . "</h2>";
 }
 ?>
 
-<a href="home_page.php">Back to Home</a>
+<div class="nav-bar">
+    <a href="home_page.php" class="nav-link"> ← Back to Home</a>
+</div>
 
 </body>
 </html>
