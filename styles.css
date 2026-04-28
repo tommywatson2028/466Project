@@ -146,8 +146,10 @@
 .adm-card {
   background-color: #041426;
   padding: 20px;
-  width: 100%;
+  width: 80%;
 }
+
+/* cart styles  */
 
 .cart-row {
   background-color: #001f3f;
