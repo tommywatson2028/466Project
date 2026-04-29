@@ -92,7 +92,8 @@ $items = $call->fetchAll(PDO::FETCH_ASSOC);
 
 <nav class="nav-bar">
     <a href="cart.php" class="nav-link">Cart</a> |
-    <a href="order_tracking.php" class="nav-link">Order Tracking</a>
+    <a href="order_tracking.php" class="nav-link">Order Tracking</a> |
+	<a href="logout.php" class="nav-link">Logout</a>
 </nav>
 
 <hr>
