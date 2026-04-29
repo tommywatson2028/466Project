@@ -53,7 +53,8 @@ endif; ?>
 		<h1 class="title"> ORDER FULFILLMENT</h1>
 		<nav class="nav-bar">
 			<a href="inventory_page.php" class="nav-link">Inventory</a>
-			
+			<span class="form-desc">|</span>
+            <a href="logout.php" class="nav-link">Logout</a>
 		</nav>
 		<hr>
 
