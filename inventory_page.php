@@ -43,6 +43,8 @@ if(!$user['IS_OWNER']) {
 		<h1 class="title">INVENTORY</h1>
 		<nav class="nav-bar">
 			<a href="order_fulfillment.php" class="nav-link">Order Fullfillment</a>
+			<span class="form-desc">|</span>
+            <a href="logout.php" class="nav-link">Logout</a>
 		</nav>
 		<hr>
 
