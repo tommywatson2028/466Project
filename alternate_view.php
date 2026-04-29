@@ -49,7 +49,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <p>Stock: <?php echo $item['PROD_QTY']; ?></p>
 
 	<?php if ($item['PROD_QTY'] > 0): ?>
-		<form method="POST">
+		<form method="POST" action="home_page.php">
 			<input type="hidden" name="prod_id" value="<?php echo $item['PROD_ID']; ?>">
 			<button type="submit" name="add_to_cart" class="submit-btn">
 				Add to Cart
