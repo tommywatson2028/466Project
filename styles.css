@@ -213,3 +213,16 @@
   }
 
 /* cart styles end */
+
+.quick-form {
+  margin: 10px 0;
+}
+
+.quick-label {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
