@@ -112,8 +112,6 @@ $items = $call->fetchAll(PDO::FETCH_ASSOC);
             <img class="product-img" src="<?php echo $item['IMG_URL']; ?>" alt="Image of <?php echo $item['PROD_NAME']; ?>">
         </div>
 
-        <p class="product-desc"><?php echo $item['PROD_DESC']; ?></p>
-
         <p>Type: <?php echo $item['PROD_TYPE']; ?></p>
 
         <p>Price: $<?php echo $item['PRICE']; ?></p>
