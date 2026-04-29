@@ -60,11 +60,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 			Out of Stock
 		</button>
 	<?php endif; ?>
-	
-	<form method="POST" action="home_page.php">
-		<input type="hidden" name="prod_id" value="<?php echo $item['PROD_ID']; ?>">
-		<button type="submit" name="add_to_cart" class="submit-btn">Add to Cart</button>
-	</form>
 </div>
 
 <br>
