@@ -22,16 +22,24 @@ if (isset($_POST['add_to_cart'])) {
 
     // Get product ID from form submission
     $prod_id = $_POST['prod_id'];
-
     // Get currently logged-in user from session
     $user = $_SESSION['useridx'];
 
+     $sq9 = "UPDATE Inventory 
+        SET PROD_QTY = PROD_QTY - 1 
+        WHERE PROD_ID = :prod AND PROD_QTY > 0";
+        $stmt = $pdo->prepare($sq9);
+        $stmt->execute([':prod' => $prod_id]);
+
+ 
+    
     // Check if this product already exists in user's cart
     $sql = "SELECT ORDER_QTY FROM CartContains 
             WHERE CUSTOMER_ID = :user AND PROD_ID = :prod";
 
     $stmt = $pdo->prepare($sql);
     $stmt->execute([':user' => $user,':prod' => $prod_id]);
+
 
     // If product already exists in cart, increase quantity
     if ($stmt->fetch()) {
@@ -50,6 +58,13 @@ if (isset($_POST['add_to_cart'])) {
         ':user' => $user,
         ':prod' => $prod_id
     ]);
+
+
+    $sql = "SELECT * FROM Inventory";
+
+    // Prepare and execute query
+    $call = $pdo->prepare($sql);
+    $call->execute();
 }
 
 // Query to retrieve all products from Inventory table
@@ -95,6 +110,8 @@ $items = $call->fetchAll(PDO::FETCH_ASSOC);
         <div class="img-container">
             <img class="product-img" src="<?php echo $item['IMG_URL']; ?>" alt="Image of <?php echo $item['PROD_NAME']; ?>">
         </div>
+
+        <p class="product-desc"><?php echo $item['PROD_DESC']; ?></p>
 
         <p>Type: <?php echo $item['PROD_TYPE']; ?></p>
 
