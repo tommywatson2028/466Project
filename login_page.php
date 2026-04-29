@@ -5,7 +5,7 @@
 	</head>
 	
 	<body class="page">
-		<h1 class="title"> BLOCkBUSTERS  </h1>
+		<h1 class="title"> BLOCKBUSTER  </h1>
 
 		<?php
 			// show error if login failed
