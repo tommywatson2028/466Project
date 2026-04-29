@@ -136,16 +136,6 @@
                     ':p' => $item['PROD_ID'],
                     ':q' => $item['ORDER_QTY']
                 ]);
-
-                // subtract bought quantity from inventory
-                $pdo->prepare("
-                    UPDATE Inventory
-                    SET PROD_QTY = PROD_QTY - :q
-                    WHERE PROD_ID = :p
-                ")->execute([
-                    ':q' => $item['ORDER_QTY'],
-                    ':p' => $item['PROD_ID']
-                ]);
             }
 
             // clear user's cart

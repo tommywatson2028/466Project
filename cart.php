@@ -41,8 +41,8 @@
         $_SESSION['checkout'] = false;
     }
 
-    $useridx = $_SESSION['useridx'];
-    // $useridx = 'BenDover';
+    // $useridx = $_SESSION['useridx'];
+    $useridx = 'BenDover';
 
     // handle post requests
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -70,7 +70,7 @@
             if ($row) {
 
                 // add one item
-                if ($_POST['action'] == 'plus' && $row['ORDER_QTY'] < $row['PROD_QTY']) {
+                if ($_POST['action'] == 'plus' && $row['PROD_QTY'] > 0) {
 
                     $pdo->prepare(
                         "UPDATE CartContains
@@ -80,6 +80,15 @@
                         ':u' => $useridx,
                         ':p' => $prod_id
                     ]);
+
+                    $pdo->prepare(
+                        "UPDATE Inventory
+                        SET PROD_QTY = PROD_QTY - 1
+                        WHERE PROD_ID = :p"
+                    )->execute([
+                        ':p' => $prod_id
+                    ]);
+
                 }
 
                 // remove one item
@@ -97,6 +106,15 @@
                             ':p' => $prod_id
                         ]);
 
+
+                        $pdo->prepare(
+                            "UPDATE Inventory
+                            SET PROD_QTY = PROD_QTY + 1
+                            WHERE PROD_ID = :p"
+                        )->execute([
+                            ':p' => $prod_id
+                        ]);
+
                     } else {
 
                         // delete item if quantity reaches zero
@@ -105,6 +123,14 @@
                             WHERE CUSTOMER_ID = :u AND PROD_ID = :p"
                         )->execute([
                             ':u' => $useridx,
+                            ':p' => $prod_id
+                        ]);
+
+                        $pdo->prepare(
+                            "UPDATE Inventory
+                            SET PROD_QTY = PROD_QTY + 1
+                            WHERE PROD_ID = :p"
+                        )->execute([
                             ':p' => $prod_id
                         ]);
                     }
@@ -173,10 +199,6 @@
                     <div class="cart-line">
 
                         <div class="cart-info">
-
-                            <span class="cart-product-image">
-                                <?php echo $item['IMG_URL']; ?>
-                            </span>
 
                             <span class="cart-product-name">
                                 <?php echo $item['PROD_NAME']; ?>
