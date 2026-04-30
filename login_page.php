@@ -25,29 +25,6 @@
 		</form>
 		
 		<br>
-		<form method="POST" action="login_handler.php" class="quick-form"> 
-				<p class="quick-label">Main homepage, cart, and order status</p>
-				<input type="hidden" name="useridx" value="UrMom">
-				<input type="hidden" name="userpass" value="IsFat">
-				<input type="submit" value="Log in as user" class="submit-btn">
-			</form>
-			
-			<h1> use this to access order fufilment </h1>
-			<form method="POST" action="login_handler.php" class="quick-form"> 
-				<p class="quick-label">Order fulfillment</p>
-				<input type="hidden" name="useridx" value="Emp">
-				<input type="hidden" name="userpass" value="Emp">
-				<input type="submit" value="Log in as employee" class="submit-btn">
-			</form>
-			
-			<h1> use this to access main inventory and order fufilment </h1>
-			<form method="POST" action="login_handler.php" class="quick-form"> 
-				<p class="quick-label">Inventory and order fulfillment</p> 
-				<input type="hidden" name="useridx" value="Owner">
-				<input type="hidden" name="userpass" value="Owner">
-				<input type="submit" value="Log in as owner" class="submit-btn">
-			</form>
-		<br>
 		
 		<table class="account-table" cellpadding="20" cellspacing="0">
 			<tr>
@@ -56,5 +33,31 @@
 				</th>
 			</tr>
 		</table>
+		
+		<br>
+		
+		<h1> Buttons to Bypass Authentication: </h1>
+		<form method="POST" action="login_handler.php" class="quick-form"> 
+			<p class="quick-label">Main homepage, cart, and order status</p>
+			<input type="hidden" name="useridx" value="UrMom">
+			<input type="hidden" name="userpass" value="IsFat">
+			<input type="submit" value="Log in as user" class="submit-btn">
+		</form>
+		
+		<form method="POST" action="login_handler.php" class="quick-form"> 
+			<p class="quick-label">Order fulfillment</p>
+			<input type="hidden" name="useridx" value="Emp">
+			<input type="hidden" name="userpass" value="Emp">
+			<input type="submit" value="Log in as employee" class="submit-btn">
+		</form>
+		
+		<form method="POST" action="login_handler.php" class="quick-form"> 
+			<p class="quick-label">Inventory and order fulfillment</p> 
+			<input type="hidden" name="useridx" value="Owner">
+			<input type="hidden" name="userpass" value="Owner">
+			<input type="submit" value="Log in as owner" class="submit-btn">
+		</form>
+		
+		<br>
 	</body>
 </html>
